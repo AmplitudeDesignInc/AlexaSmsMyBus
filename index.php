@@ -58,10 +58,10 @@ if ($alexaRequest instanceof IntentRequest) {
         $response->respond('Hmmmm, that is not something I know how to do. Say, "help" for instructions.');
     }
     if ($intent == "AMAZON.StartOverIntent") {
-        $response->respond('Begin by asking,  "get buoy number or name." Say help for more information.');
+        $response->respond('Ask for bus and route number information.');
     }
     if ($intent == "AMAZON.HelpIntent") {
-        $response->respond('Begin by asking, "Hey Alexa, ask Buoy Reading to get four four zero zero seven. See N O A A website to get a buoy names and numbers.');
+        $response->respond('Ask for bus and route number information.');
     }
 
     if ($intent == "AMAZON.StopIntent" || $intent == "AMAZON.CancelIntent") {
@@ -72,7 +72,7 @@ if ($alexaRequest instanceof IntentRequest) {
 }
 
 if ($alexaRequest instanceof LaunchRequest) {
-    $response -> respond("Hello. Begin by saying, 'get buoy number or name. You can also say read my list.");
+    $response -> respond("Ask for bus and route number information.");
 }
 
 // Handle the session end intent.
