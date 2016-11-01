@@ -51,7 +51,17 @@ if ($alexaRequest instanceof IntentRequest) {
         $stopNumber = $rawRequest['request']['intent']['slots']['stopNumber']['value'];
         $stopNumber = str_replace(array(",", "."), array("",""), $stopNumber);
         $stopNumber = (int)$stopNumber;
-        $response->respond('You are looking for stop '.$stopNumber);
+
+        $responseText = 'You are looking for stop '.$stopNumber;
+
+        if (isset($rawRequest['request']['intent']['slots']['routeNumber']['value'])) {
+            $routeNumber = $rawRequest['request']['intent']['slots']['routeNumber']['value'];
+            $routeNumber = str_replace(array(",", "."), array("",""), $routeNumber);
+            $routeNumber = (int)$routeNumber;
+
+            $responseText .= " and route number ".$routeNumber;
+        }
+        $response->respond($responseText);
     }
 
     if ($intent == "ThankYouIntent") {
