@@ -68,7 +68,9 @@ if ($alexaRequest instanceof IntentRequest) {
         $url = "http://api.smsmybus.com/v1/getarrivals?".http_build_query($queryArr);
         $reply = file_get_contents($url);
         $replyArr = json_decode($reply, true);
-
+        if (APP_DEBUG === true) {
+            error_log($url);
+        }
         $responseText = '';
         foreach ($replyArr['stop']['route'] as $key => $data) {
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
@@ -79,7 +81,6 @@ if ($alexaRequest instanceof IntentRequest) {
             $responseText .= "Route ".$routeNumber." toward ".$data['destination'];
             $responseText .= " arrives at ".$data['arrivalTime'].". ";
         }
-
         $response->respond($responseText);
     }
 
