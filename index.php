@@ -74,7 +74,7 @@ if ($alexaRequest instanceof IntentRequest) {
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
             $data['destination'] = str_replace("DUNNS MSH", "Dunna Marsh", $data['destination']);
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
-            $data['destination'] = str_replace(":", ", ", $data['destination']);
+            $data['destination'] = str_replace(":", " ", $data['destination']);
             
             $responseText .= "Route ".$routeNumber." toward ".$data['destination'];
             $responseText .= " arrives at ".$data['arrivalTime'].". ";
