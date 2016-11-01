@@ -77,6 +77,7 @@ if ($alexaRequest instanceof IntentRequest) {
             $data['destination'] = str_replace("DUNNS MSH", "Dunna Marsh", $data['destination']);
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
             $data['destination'] = str_replace("NORTH TP", "North Transfer Point", $data['destination']);
+            $data['destination'] = str_replace("EAST TP", "East Transfer Point", $data['destination']);
             $data['destination'] = str_replace("E TOWNE", "East Town", $data['destination']);
             $data['destination'] = str_replace("WEXFD RG", "Wexford Ridge", $data['destination']);
             $data['destination'] = str_replace("WESTFLD", "Westfield", $data['destination']);
