@@ -71,7 +71,7 @@ if ($alexaRequest instanceof IntentRequest) {
         if (APP_DEBUG === true) {
             error_log($reply);
         }
-        $responseText = '';
+        $responseText = 'Here are the upcoming arrival times. ';
         foreach ($replyArr['stop']['route'] as $key => $data) {
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
             $data['destination'] = str_replace("DUNNS MSH", "Dunna Marsh", $data['destination']);
