@@ -21,7 +21,9 @@ $request = SymfonyRequest::createFromGlobals();
 $applicationId = AMAZON_APPLICATION_ID;
 // Use Symfony to get the request body.
 $rawRequest = $request -> getContent();
-
+if (APP_DEBUG === true) {
+    error_log($rawRequest);
+}
 //json_decode the request.
 $rawRequest = json_decode($rawRequest, true);
 
