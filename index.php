@@ -69,7 +69,7 @@ if ($alexaRequest instanceof IntentRequest) {
         $reply = file_get_contents($url);
         $replyArr = json_decode($reply, true);
         if (APP_DEBUG === true) {
-            error_log($url);
+            error_log($reply);
         }
         $responseText = '';
         foreach ($replyArr['stop']['route'] as $key => $data) {
