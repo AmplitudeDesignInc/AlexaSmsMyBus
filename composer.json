@@ -1,0 +1,12 @@
+{
+    "require": {
+        "minicodemonkey/amazon-alexa-php": "@stable",
+        "symfony/http-foundation": "@stable",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SmsMyBus\\": "src"
+        }
+    }
+}
