@@ -54,7 +54,7 @@ class AnswerIntent
             $responseText = $replyArr['info'];
         }
 
-        $this -> response->respond($this -> responseText)->withCard("Madison Metro", $this -> responseCardText);
+        $this -> response->respond($this -> responseText)->withCard("Madison Metro: ".$stopNumber, $this -> responseCardText);
     }
 
     private function stopHasRoutes($replyArr)
