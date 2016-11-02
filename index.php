@@ -92,13 +92,13 @@ if ($alexaRequest instanceof IntentRequest) {
     }
 
     if ($intent == "ThankYouIntent") {
-        $response->respond('Hmmmm, that is not something I know how to do. Say, "help" for instructions.');
+        $response->respond('Hmmmm, not something I know how to do. Say, "help" for instructions.');
     }
     if ($intent == "AMAZON.StartOverIntent") {
         $response->respond('Ask for bus and route number information.');
     }
     if ($intent == "AMAZON.HelpIntent") {
-        $response->respond('Ask for bus and route number information.');
+        $response->respond('Ask for bus and route number information. For example, say, for stop 6111 route 70.');
     }
 
     if ($intent == "AMAZON.StopIntent" || $intent == "AMAZON.CancelIntent") {
