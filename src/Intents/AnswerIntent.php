@@ -60,6 +60,7 @@ class AnswerIntent
     private function stopHasRoutes($replyArr)
     {
         $this -> responseText = 'Here are the upcoming arrival times for stop '.$replyArr['stop']['stopID'].'. ';
+        $text = null;
         foreach ($replyArr['stop']['route'] as $key => $data) {
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
             $data['destination'] = str_replace("DUNNS MSH", "Dunna Marsh", $data['destination']);
@@ -72,9 +73,12 @@ class AnswerIntent
             $data['destination'] = str_replace("WEXFD RG", "Wexford Ridge", $data['destination']);
             $data['destination'] = str_replace("WESTFLD", "Westfield", $data['destination']);
             
-            $this -> responseText .= "Route ".$data['routeID']." toward ".$data['destination'];
-            $this -> responseText .= " arrives at ".$data['arrivalTime'].". ";
-            $this -> responseCardText .= $this -> responseText. "\r\n";
+            $text .= "Route ".$data['routeID']." toward ".$data['destination'];
+            $text .= " arrives at ".$data['arrivalTime'].". ";
+            $routes[] = $text;
         }
+        $this -> responseText = implode(" ", $routes);
+        $this -> responseCardText = implode("\r\n", $routes);
+
     }
 }
