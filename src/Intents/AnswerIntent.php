@@ -17,6 +17,7 @@ class AnswerIntent
         $this -> rawRequest = $rawRequest;
         $this -> setResponse();
     }
+
     public function setResponse()
     {
         $stopNumber = $this -> rawRequest['request']['intent']['slots']['stopNumber']['value'];
@@ -45,6 +46,10 @@ class AnswerIntent
 
         if (is_array($replyArr['stop']['route'])) {
             $responseText = $this -> stopHasRoutes($replyArr);
+        } elseif (!empty($stopNumber)) {
+            $responseText = "We could not find any routes for stop ".$stopNumber;
+        } elseif ($replyArr['status'] == 0) {
+            $responseText = $replyArr['info'];
         }
 
         $this -> response->respond($responseText);
