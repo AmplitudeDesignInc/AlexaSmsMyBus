@@ -79,7 +79,7 @@ class AnswerIntent
             $routes[] = $text;
         }
         $this -> responseText = implode(" ", $routes);
-        $this -> responseCardText = implode("\r\n", $routes);
+        $this -> responseCardText = str_replace(":", " - ", implode("\r\n", $routes));
 
     }
 }
