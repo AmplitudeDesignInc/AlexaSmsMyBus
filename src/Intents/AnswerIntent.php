@@ -73,6 +73,9 @@ class AnswerIntent
             $data['destination'] = str_replace("E TOWNE", "East Town", $data['destination']);
             $data['destination'] = str_replace("WEXFD RG", "Wexford Ridge", $data['destination']);
             $data['destination'] = str_replace("WESTFLD", "Westfield", $data['destination']);
+            $data['destination'] = str_replace("MIDVALE", "Midvale", $data['destination']);
+            $data['destination'] = str_replace("CHALET", "Chalet", $data['destination']);
+            $data['destination'] = str_replace("MOHAWK", "Mohawk", $data['destination']);
             
             $text .= "Route ".$data['routeID']." toward ".$data['destination'];
             $text .= " arrives at ".$data['arrivalTime'].". ";
