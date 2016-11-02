@@ -11,6 +11,8 @@ class AnswerIntent
 
     public $responseText = '';
 
+    public $responseCardText = '';
+
     public function __construct(\Alexa\Response\Response &$response, $rawRequest)
     {
         $this -> response = $response;
@@ -52,13 +54,12 @@ class AnswerIntent
             $responseText = $replyArr['info'];
         }
 
-        $this -> response->respond($responseText)->withCard("Madison Metro", $responseText);
+        $this -> response->respond($this -> responseText)->withCard("Madison Metro", $this -> responseCardText);
     }
 
     private function stopHasRoutes($replyArr)
     {
-        $responseCard = null;
-        $responseText = 'Here are the upcoming arrival times for stop '.$replyArr['stop']['stopID'].'. ';
+        $this -> responseText = 'Here are the upcoming arrival times for stop '.$replyArr['stop']['stopID'].'. ';
         foreach ($replyArr['stop']['route'] as $key => $data) {
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
             $data['destination'] = str_replace("DUNNS MSH", "Dunna Marsh", $data['destination']);
@@ -71,10 +72,9 @@ class AnswerIntent
             $data['destination'] = str_replace("WEXFD RG", "Wexford Ridge", $data['destination']);
             $data['destination'] = str_replace("WESTFLD", "Westfield", $data['destination']);
             
-            $responseText .= "Route ".$data['routeID']." toward ".$data['destination'];
-            $responseText .= " arrives at ".$data['arrivalTime'].". ";
-            $responseCard .= $responseText. "\r\n";
+            $this -> responseText .= "Route ".$data['routeID']." toward ".$data['destination'];
+            $this -> responseText .= " arrives at ".$data['arrivalTime'].". ";
+            $this -> responseCardText .= $this -> responseText. "\r\n";
         }
-        return $responseText;
     }
 }
