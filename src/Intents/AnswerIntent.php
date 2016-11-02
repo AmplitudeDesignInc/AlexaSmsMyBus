@@ -52,7 +52,7 @@ class AnswerIntent
             $responseText = $replyArr['info'];
         }
 
-        $this -> response->respond($responseText)->withCard($responseText);
+        $this -> response->respond($responseText)->withCard("Madison Metro", $responseText);
     }
 
     private function stopHasRoutes($replyArr)
