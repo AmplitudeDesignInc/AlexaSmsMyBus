@@ -25,6 +25,7 @@ class AnswerIntent
         $stopNumber = $this -> rawRequest['request']['intent']['slots']['stopNumber']['value'];
         $stopNumber = str_replace(array(",", "."), array("",""), $stopNumber);
         $stopNumber = (int)$stopNumber;
+        $stopNumber = str_pad($stopNumber, 4, "0", STR_PAD_LEFT);
 
         $responseText = 'You are looking for stop '.$stopNumber;
         $routeNumber = null;
