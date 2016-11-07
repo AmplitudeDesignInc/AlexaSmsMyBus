@@ -21,7 +21,7 @@ class HelpIntent
 
     public function setResponse()
     {
-        $this -> responseText = 'Ask for Madison Metro bus and route number information. For example, say, "Ask Alexa for stop nummber one one zero one route seventy."';
+        $this -> responseText = 'Ask for Madison Metro bus and route number information. For example, say, "Hey Alexa, ask Madison Metro for stop number one one zero one route seventy."';
         $this -> response->respond($this -> responseText)->withCard("Madison Metro Help:" ,$this -> responseText);
     }
 }
