@@ -27,8 +27,11 @@ class AnswerIntent
         $stopNumber = (int)$stopNumber;
 
         $responseText = 'You are looking for stop '.$stopNumber;
-
-        if (isset($this -> rawRequest['request']['intent']['slots']['routeNumber']['value'])) {
+        $routeNumber = null;
+        if (
+            isset($this -> rawRequest['request']['intent']['slots']['routeNumber']['value']) && 
+            strlen($this -> rawRequest['request']['intent']['slots']['routeNumber']['value']) > 0
+        ) {
             $routeNumber = $this -> rawRequest['request']['intent']['slots']['routeNumber']['value'];
             $routeNumber = str_replace(array(",", "."), array("",""), $routeNumber);
             $routeNumber = (int)$routeNumber;
@@ -37,8 +40,10 @@ class AnswerIntent
 
         $queryArr['key'] = 'amplitude';
         $queryArr['stopID'] = $stopNumber;
-        $queryArr['routeID'] = $routeNumber;
 
+        if ($routeNumber != null) {
+            $queryArr['routeID'] = $routeNumber;
+        }
         $url = "http://api.smsmybus.com/v1/getarrivals?".http_build_query($queryArr);
         $reply = file_get_contents($url);
         $replyArr = json_decode($reply, true);
