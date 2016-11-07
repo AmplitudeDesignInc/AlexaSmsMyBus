@@ -92,6 +92,7 @@ class AnswerIntent
             $data['destination'] = str_replace("MIDLTON", "Middleton", $data['destination']);
             $data['destination'] = str_replace("DUTCH ML", "Dutch Mill", $data['destination']);
             $data['destination'] = str_replace("GRNTREE", "Greentree", $data['destination']);
+            $data['destination'] = str_replace("ARBOR HL", "Arbor Hill", $data['destination']);
             
             $text .= "Route ".$data['routeID']." toward ".$data['destination'];
             $text .= " arrives at ".$data['arrivalTime'].". ";
