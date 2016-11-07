@@ -51,12 +51,16 @@ class AnswerIntent
             error_log($reply);
         }
 
-        if (is_array($replyArr['stop']['route'])) {
+        if (is_array($replyArr['stop']['route']) && count($replyArr['stop']['route']) > 0) {
             $responseText = $this -> stopHasRoutes($replyArr);
         } elseif (!empty($stopNumber)) {
-            $responseText = "We could not find any routes for stop ".$stopNumber;
+            $this -> responseText = "We could not find any routes for stop ".$stopNumber;
+            if ($routeNumber != null) {
+                $this -> responseText .= " and route number ".$routeNumber;
+            }
+            $this -> responseCardText = $this -> responseText;
         } elseif ($replyArr['status'] == 0) {
-            $responseText = $replyArr['info'];
+            $this -> responseText = $replyArr['info'];
         }
 
         $this -> response->respond($this -> responseText)->withCard("Madison Metro Stop: ".$stopNumber, $this -> responseCardText);
