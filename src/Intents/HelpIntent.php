@@ -25,7 +25,7 @@ class HelpIntent
         $this -> responseText .= "\r\n";        
         $this -> responseText .= 'For example, say, "Hey Alexa, ask Madison Metro for stop number zero one eight zero route forty-seven."';
         $this -> responseText .= "\r\n";
-        $this -> responseText .= "We will return upcoming schedule information.";
+        $this -> responseText .= "We will respond with upcoming schedule information.";
         $this -> response->respond($this -> responseText)->withCard("Madison Metro Help:" ,$this -> responseText);
     }
 }
