@@ -58,7 +58,7 @@ if ($alexaRequest instanceof IntentRequest) {
         $response->respond('Ask for bus and route number information.');
     }
     if ($intent == "AMAZON.HelpIntent") {
-        $response->respond('Ask for bus and route number information. For example, say, for stop 6111 route 70.');
+        $responseIntent = new SmsMyBus\Intents\HelpIntent($response, $rawRequest);
     }
 
     if ($intent == "AMAZON.StopIntent" || $intent == "AMAZON.CancelIntent") {
