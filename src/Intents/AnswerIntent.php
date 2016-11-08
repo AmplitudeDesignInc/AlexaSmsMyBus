@@ -68,9 +68,10 @@ class AnswerIntent
         if (isset($replyArr['info'])) {
             $this -> responseText = $replyArr['info'];
         }
-
+        var_dump($replyArr);
         if (isset($replyArr['status']) && $replyArr['status'] == -1) {
             $this -> responseText = $replyArr['description'];
+            $this -> responseCardText = $replyArr['description'];
         }
 
         $this -> response->respond($this -> responseText)->withCard("Madison Metro Stop: ".$stopNumber, $this -> responseCardText);
