@@ -63,8 +63,14 @@ class AnswerIntent
                 $this -> responseText .= " and route number ".$routeNumber;
             }
             $this -> responseCardText = $this -> responseText;
-        } elseif ($replyArr['status'] == 0) {
+        }
+
+        if (isset($replyArr['info'])) {
             $this -> responseText = $replyArr['info'];
+        }
+
+        if (isset($replyArr['status']) && $replyArr['status'] == -1) {
+            $this -> responseText = $replyArr['description'];
         }
 
         $this -> response->respond($this -> responseText)->withCard("Madison Metro Stop: ".$stopNumber, $this -> responseCardText);
