@@ -23,9 +23,9 @@ class HelpIntent
     {
         $this -> responseText = 'Ask for Madison Metro bus and route number information.';
         $this -> responseText .= "\r\n";        
-        $this -> responseText .= 'For example, say, "Hey Alexa, ask Madison Metro for stop number zero one eight zero route forty-seven."';
+        $this -> responseText .= 'For example, say, "Hey Alexa, Metro for stop number zero one eight zero route forty-seven."';
         $this -> responseText .= "\r\n";
         $this -> responseText .= "We will respond with upcoming schedule information.";
-        $this -> response->respond($this -> responseText)->withCard("Madison Metro Help:" ,$this -> responseText);
+        $this -> response->respond($this -> responseText)->withCard("Madison Next Bus Help:" ,$this -> responseText);
     }
 }
