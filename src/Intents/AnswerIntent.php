@@ -105,6 +105,7 @@ class AnswerIntent
             $data['destination'] = str_replace("MATC", "Madison Area Technical College", $data['destination']);
             $data['destination'] = str_replace("W CAMPUS", "West Campus", $data['destination']);
             $data['destination'] = str_replace("W TOWNE", "West Towne", $data['destination']);
+            $data['destination'] = str_replace("WASHNGTN", "Washington", $data['destination']);
 
             $data['destination'] = str_replace("MIN PT", "Mineral Point", $data['destination']);
 
