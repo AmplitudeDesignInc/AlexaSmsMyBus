@@ -77,7 +77,7 @@ class AnswerIntent
         foreach ($replyArr['stop']['route'] as $key => $data) {
             $text = null;
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
-            $data['destination'] = str_replace("DUNNS MSH", "Dunna Marsh", $data['destination']);
+            $data['destination'] = str_replace("DUNNS MSH", "Dunn's Marsh", $data['destination']);
             $data['destination'] = str_replace("CAP SQR", "Capital Square", $data['destination']);
             $data['destination'] = str_replace("NORTH TP", "North Transfer Point", $data['destination']);
             $data['destination'] = str_replace("EAST TP", "East Transfer Point", $data['destination']);
