@@ -67,7 +67,7 @@ class AnswerIntent
         }
 
         if (isset($replyArr['status']) && $replyArr['status'] == -1) {
-            $this -> responseText = $replyArr['description']." ".$stopNumber;
+            $this -> responseText = $replyArr['description']." number ".$stopNumber;
             $this -> responseCardText = $replyArr['description'];
         }
 
