@@ -52,10 +52,7 @@ class AnswerIntent
             error_log($reply);
         }
 
-        if (!isset($replyArr['stop'])) {
-            $this -> responseText = $replyArr['info'];
-            $this -> responseCardText = $replyArr['info'];
-        } elseif (is_array($replyArr['stop']['route']) && count($replyArr['stop']['route']) > 0) {
+        if (is_array($replyArr['stop']['route']) && count($replyArr['stop']['route']) > 0) {
             $responseText = $this -> stopHasRoutes($replyArr);
         } elseif (!empty($stopNumber)) {
             $this -> responseText = "We could not find any routes for stop ".$stopNumber;
